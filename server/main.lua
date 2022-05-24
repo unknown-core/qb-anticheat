@@ -14,7 +14,7 @@ RegisterNetEvent('qb-anticheat:server:banPlayer', function(reason)
     TriggerEvent("qb-log:server:CreateLog", "anticheat", "Anti-Cheat", "white", "You were banned "..reason, false)
     MySQL.Async.insert('INSERT INTO bans (name, license, discord, ip, reason, expire, bannedby) VALUES (?, ?, ?, ?, ?, ?, ?)', {
         GetPlayerName(src),
-        QBCore.Functions.GetIdentifier(src, QBConfig.Server.Identifier),
+        QBCore.Functions.GetIdentifier(src, QBCore.Config.Server.Identifier),
         QBCore.Functions.GetIdentifier(src, 'discord'),
         QBCore.Functions.GetIdentifier(src, 'ip'),
         reason,
